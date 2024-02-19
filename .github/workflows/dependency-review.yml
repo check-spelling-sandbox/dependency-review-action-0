@@ -18,9 +18,9 @@ jobs:
         uses: check-spelling-sandbox/dependency-review-action@main
         with:
           base-ref: ${{ github.pull_request.base.sha || env.base_ref_1 }}
-          head-ref: ${{ github.pull_request.head.sha || github.head_ref }}
+          head-ref: ${{ github.pull_request.head.sha || github.sha }}
         env:
-          base_ref_1: "${{ github.head_ref }}~"
+          base_ref_1: "${{ github.sha }}~"
       - name: 'Report'
         shell: bash
         env:
